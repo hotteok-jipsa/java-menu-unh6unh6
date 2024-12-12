@@ -52,7 +52,7 @@ public class MenuController {
             inputView.printCantEatMenuInputGuideMessage(coach.getName());
             String input = inputView.getInput();
             List<String> cantEatMenus = inputValidator.validateCantEatMenus(input);
-
+            coach.setCantEatMenus(cantEatMenus);
         }
     }
 }
