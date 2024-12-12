@@ -1,6 +1,9 @@
 package menu.model;
 
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
+import menu.enums.Category;
 
 public class Menus {
 
@@ -25,8 +28,14 @@ public class Menus {
             "라자냐", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니"
     );
 
-    private static final List<List<String>> categories =
-            List.of(
-                    category1Menus, category2Menus, category3Menus, category4Menus, category5Menus
-            );
+    private static final Map<Category, List<String>> categoryMenu = new EnumMap<>(Category.class);
+
+    static {
+        categoryMenu.put(Category.CATEGORY1, category1Menus);
+        categoryMenu.put(Category.CATEGORY2, category2Menus);
+        categoryMenu.put(Category.CATEGORY3, category3Menus);
+        categoryMenu.put(Category.CATEGORY4, category4Menus);
+        categoryMenu.put(Category.CATEGORY5, category5Menus);
+    }
+
 }

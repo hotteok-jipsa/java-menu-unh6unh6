@@ -34,7 +34,7 @@ public class MenuController {
             return new Coaches(getRawCoaches(rawCoachesName));
         } catch (IllegalArgumentException e) {
             outputView.printErrorMessage(e);
-            getCoaches();
+            return getCoaches();
         }
     }
 
