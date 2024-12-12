@@ -49,10 +49,19 @@ public class MenuController {
 
     private void getAndSetCantEatMenu(Coaches coaches) {
         for (Coach coach : coaches.getCoaches()) {
+            getAndSetCantEatMenusByCoach(coach);
+        }
+    }
+
+    private void getAndSetCantEatMenusByCoach(Coach coach) {
+        try {
             inputView.printCantEatMenuInputGuideMessage(coach.getName());
             String input = inputView.getInput();
             List<String> cantEatMenus = inputValidator.validateCantEatMenus(input);
             coach.setCantEatMenus(cantEatMenus);
+        } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e);
+            getAndSetCantEatMenusByCoach(coach);
         }
     }
 }
