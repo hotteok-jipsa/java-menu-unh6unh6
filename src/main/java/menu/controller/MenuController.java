@@ -12,5 +12,6 @@ public class MenuController {
 
     public void start() {
         inputView.printStartGuideMessage();
+        inputView.printCoachNameInputGuideMessage();
     }
 }
