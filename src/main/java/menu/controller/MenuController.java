@@ -22,20 +22,19 @@ public class MenuController {
 
     public void start() {
         inputView.printStartGuideMessage();
-        inputView.printCoachNameInputGuideMessage();
         Coaches coaches = getCoaches();
         getAndSetCantEatMenu(coaches);
     }
 
     private Coaches getCoaches() {
-        String input = inputView.getInput();
-        while (true) {
-            try {
-                List<String> rawCoachesName = inputValidator.validateCoachesName(input);
-                return new Coaches(getRawCoaches(rawCoachesName));
-            } catch (Exception e) {
-                outputView.printErrorMessage(e);
-            }
+        try {
+            inputView.printCoachNameInputGuideMessage();
+            String input = inputView.getInput();
+            List<String> rawCoachesName = inputValidator.validateCoachesName(input);
+            return new Coaches(getRawCoaches(rawCoachesName));
+        } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e);
+            getCoaches();
         }
     }
 
