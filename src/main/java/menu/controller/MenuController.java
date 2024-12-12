@@ -2,6 +2,7 @@ package menu.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import menu.model.CategoryByDay;
 import menu.model.Coach;
 import menu.model.Coaches;
 import menu.validator.InputValidator;
@@ -24,6 +25,7 @@ public class MenuController {
         inputView.printStartGuideMessage();
         Coaches coaches = getCoaches();
         getAndSetCantEatMenu(coaches);
+        CategoryByDay categoryByDay = new CategoryByDay();
     }
 
     private Coaches getCoaches() {
