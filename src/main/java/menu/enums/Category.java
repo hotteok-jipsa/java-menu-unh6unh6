@@ -24,4 +24,8 @@ public enum Category {
     String name;
 
     int number;
+
+    public String getName() {
+        return name;
+    }
 }

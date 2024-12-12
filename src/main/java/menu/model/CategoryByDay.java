@@ -32,7 +32,7 @@ public class CategoryByDay {
         List<CategoryByDayDto> categoryByDayDtos = new ArrayList<>();
         for (DayOfWeek day : DayOfWeek.values()) {
             Category todayCategory = categoryByDay.get(day);
-            categoryByDayDtos.add(new CategoryByDayDto(day.name(), todayCategory.name()));
+            categoryByDayDtos.add(new CategoryByDayDto(day.getName(), todayCategory.getName()));
         }
         return categoryByDayDtos;
     }

@@ -1,4 +1,4 @@
 package menu.dto;
 
-public record CategoryByDayDto(String weekOfDay, String category) {
+public record CategoryByDayDto(String dayOfWeek, String category) {
 }

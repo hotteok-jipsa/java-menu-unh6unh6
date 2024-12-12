@@ -6,7 +6,7 @@ import menu.dto.CoachMenuByDayDto;
 
 public class OutputView {
 
-    private static final String RESULT_GUIDE_MESSAGE = "점심 메뉴 추천을 시작합니다.";
+    private static final String RESULT_GUIDE_MESSAGE = "\n메뉴 추천 결과입니다.";
     private static final String DAY_OF_WEEK_MESSAGE_FORM = "[ 구분 | %s | %s | %s | %s | %s ]\n";
     private static final String CATEGORY_MESSAGE_FORM = "[ 카테고리 | %s | %s | %s | %s | %s ]\n";
     private static final String COACHES_MENUS_MESSAGE_FORM = "[ %s | %s | %s | %s | %s | %s ]\n";
@@ -47,11 +47,11 @@ public class OutputView {
 
     private void printDayOfWeek(List<CategoryByDayDto> categoryByDayDtos) {
         System.out.printf(DAY_OF_WEEK_MESSAGE_FORM,
-                categoryByDayDtos.get(0).weekOfDay(),
-                categoryByDayDtos.get(1).weekOfDay(),
-                categoryByDayDtos.get(2).weekOfDay(),
-                categoryByDayDtos.get(3).weekOfDay(),
-                categoryByDayDtos.get(4).weekOfDay());
+                categoryByDayDtos.get(0).dayOfWeek(),
+                categoryByDayDtos.get(1).dayOfWeek(),
+                categoryByDayDtos.get(2).dayOfWeek(),
+                categoryByDayDtos.get(3).dayOfWeek(),
+                categoryByDayDtos.get(4).dayOfWeek());
     }
 
     private void printCategory(List<CategoryByDayDto> categoryByDayDtos) {

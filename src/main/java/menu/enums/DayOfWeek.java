@@ -12,4 +12,8 @@ public enum DayOfWeek {
     }
 
     String name;
+
+    public String getName() {
+        return name;
+    }
 }
