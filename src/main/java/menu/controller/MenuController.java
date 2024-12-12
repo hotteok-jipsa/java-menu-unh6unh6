@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import menu.model.CategoryByDay;
 import menu.model.Coach;
+import menu.model.CoachMenuByDay;
 import menu.model.Coaches;
+import menu.model.CoachesMenuByday;
 import menu.validator.InputValidator;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -26,6 +28,7 @@ public class MenuController {
         Coaches coaches = getCoaches();
         getAndSetCantEatMenu(coaches);
         CategoryByDay categoryByDay = new CategoryByDay();
+        CoachesMenuByday coachesMenuByday = getCoachesMenuByDay(coaches, categoryByDay);
     }
 
     private Coaches getCoaches() {
@@ -64,5 +67,14 @@ public class MenuController {
             outputView.printErrorMessage(e);
             getAndSetCantEatMenusByCoach(coach);
         }
+    }
+
+    private CoachesMenuByday getCoachesMenuByDay(Coaches coaches, CategoryByDay categoryByDay) {
+        List<CoachMenuByDay> coachesMenuByDay = new ArrayList<>();
+        for (Coach coach : coaches.getCoaches()) {
+            CoachMenuByDay coachMenuByDay = new CoachMenuByDay(categoryByDay, coach);
+            coachesMenuByDay.add(coachMenuByDay);
+        }
+        return new CoachesMenuByday(coachesMenuByDay);
     }
 }

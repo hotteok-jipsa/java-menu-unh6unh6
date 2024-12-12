@@ -3,6 +3,7 @@ package menu.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import menu.enums.Category;
 import menu.enums.DayOfWeek;
 
@@ -13,6 +14,15 @@ public class CategoryByDay {
 
     public CategoryByDay() {
         setCategoryByDay();
+    }
+
+    public Category getCategoryByDay(DayOfWeek dayOfWeek) {
+        for (Entry<DayOfWeek, Category> entry : categoryByDay.entrySet()) {
+            if (entry.getKey().equals(dayOfWeek)) {
+                return entry.getValue();
+            }
+        }
+        throw new IllegalStateException();
     }
 
     private void setCategoryByDay() {

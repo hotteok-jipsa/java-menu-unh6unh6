@@ -28,7 +28,7 @@ public class Menus {
             "라자냐", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니"
     );
 
-    private static final Map<Category, List<String>> categoryMenu = new EnumMap<>(Category.class);
+    public static final Map<Category, List<String>> categoryMenu = new EnumMap<>(Category.class);
 
     static {
         categoryMenu.put(Category.CATEGORY1, category1Menus);
