@@ -30,6 +30,7 @@ public class MenuController {
         CategoryByDay categoryByDay = new CategoryByDay();
         CoachesMenuByday coachesMenuByday = getCoachesMenuByDay(coaches, categoryByDay);
         outputView.printResultGuideMessage();
+        outputView.printCategoryByDay(categoryByDay.getCategoryByDayDtos());
     }
 
     private Coaches getCoaches() {

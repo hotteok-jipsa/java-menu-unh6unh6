@@ -1,9 +1,12 @@
 package menu.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import menu.dto.CategoryByDayDto;
 import menu.enums.Category;
 import menu.enums.DayOfWeek;
 
@@ -23,6 +26,15 @@ public class CategoryByDay {
             }
         }
         throw new IllegalStateException();
+    }
+
+    public List<CategoryByDayDto> getCategoryByDayDtos() {
+        List<CategoryByDayDto> categoryByDayDtos = new ArrayList<>();
+        for (DayOfWeek day : DayOfWeek.values()) {
+            Category todayCategory = categoryByDay.get(day);
+            categoryByDayDtos.add(new CategoryByDayDto(day.name(), todayCategory.name()));
+        }
+        return categoryByDayDtos;
     }
 
     private void setCategoryByDay() {
