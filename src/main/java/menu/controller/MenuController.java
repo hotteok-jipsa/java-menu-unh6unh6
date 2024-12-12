@@ -50,6 +50,9 @@ public class MenuController {
     private void getAndSetCantEatMenu(Coaches coaches) {
         for (Coach coach : coaches.getCoaches()) {
             inputView.printCantEatMenuInputGuideMessage(coach.getName());
+            String input = inputView.getInput();
+            List<String> cantEatMenus = inputValidator.validateCantEatMenus(input);
+
         }
     }
 }
