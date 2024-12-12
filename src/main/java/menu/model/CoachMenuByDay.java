@@ -14,8 +14,8 @@ public class CoachMenuByDay {
     private final List<String> selectedMenus = new ArrayList<>();
 
     public CoachMenuByDay(CategoryByDay categoryByDay, Coach coach) {
-        selectMenu(categoryByDay);
         this.coach = coach;
+        selectMenu(categoryByDay);
     }
 
     public CoachMenuByDayDto getCoachMenuByDayDto() {
