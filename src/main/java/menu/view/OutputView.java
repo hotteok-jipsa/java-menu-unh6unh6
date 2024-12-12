@@ -10,6 +10,7 @@ public class OutputView {
     private static final String DAY_OF_WEEK_MESSAGE_FORM = "[ 구분 | %s | %s | %s | %s | %s ]\n";
     private static final String CATEGORY_MESSAGE_FORM = "[ 카테고리 | %s | %s | %s | %s | %s ]\n";
     private static final String COACHES_MENUS_MESSAGE_FORM = "[ %s | %s | %s | %s | %s | %s ]\n";
+    private static final String FINISH_MESSAGE = "추천을 완료했습니다.";
 
     public void printErrorMessage(Exception e) {
         System.out.println(e.getMessage());
@@ -29,6 +30,10 @@ public class OutputView {
                 .forEach(this::printCoachMenus);
     }
 
+    public void printFinishMessage() {
+        System.out.println(FINISH_MESSAGE);
+    }
+
     private void printCoachMenus(CoachMenuByDayDto coachMenuByDayDto) {
         System.out.printf(COACHES_MENUS_MESSAGE_FORM,
                 coachMenuByDayDto.name(),
@@ -36,8 +41,8 @@ public class OutputView {
                 coachMenuByDayDto.menus().get(1),
                 coachMenuByDayDto.menus().get(2),
                 coachMenuByDayDto.menus().get(3),
-                coachMenuByDayDto.menus().get(4),
-                );
+                coachMenuByDayDto.menus().get(4)
+        );
     }
 
     private void printDayOfWeek(List<CategoryByDayDto> categoryByDayDtos) {
