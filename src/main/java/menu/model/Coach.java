@@ -24,6 +24,10 @@ public class Coach {
         this.name = name;
     }
 
+    public boolean isCantEatMenu(String menu) {
+        return cantEatMenu.contains(menu);
+    }
+
     public void setCantEatMenus(final List<String> cantEatMenus) {
         validateCantEatMenusNumber(cantEatMenus);
         this.cantEatMenu = cantEatMenus;

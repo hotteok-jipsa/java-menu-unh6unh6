@@ -24,7 +24,17 @@ public class CoachMenuByDay {
 
     private void selectMenuByDay(Category todayCategory) {
         List<String> categoryMenus = Menus.categoryMenu.get(todayCategory);
-        String menu = Randoms.shuffle(categoryMenus).get(0);
+        String menu;
+        while (true) {
+            menu = Randoms.shuffle(categoryMenus).get(0);
+            if (canSelectThisMenu(menu)) {
+                break;
+            }
+        }
         selectedMenus.addLast(menu);
+    }
+
+    private boolean canSelectThisMenu(String menu) {
+        return !coach.isCantEatMenu(menu) && !selectedMenus.contains(menu);
     }
 }
