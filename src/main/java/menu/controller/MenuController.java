@@ -29,6 +29,7 @@ public class MenuController {
         getAndSetCantEatMenu(coaches);
         CategoryByDay categoryByDay = new CategoryByDay();
         CoachesMenuByday coachesMenuByday = getCoachesMenuByDay(coaches, categoryByDay);
+        outputView.printResultGuideMessage();
     }
 
     private Coaches getCoaches() {
