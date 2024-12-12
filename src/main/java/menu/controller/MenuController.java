@@ -24,6 +24,7 @@ public class MenuController {
         inputView.printStartGuideMessage();
         inputView.printCoachNameInputGuideMessage();
         Coaches coaches = getCoaches();
+        getAndSetCantEatMenu(coaches);
     }
 
     private Coaches getCoaches() {
@@ -44,5 +45,11 @@ public class MenuController {
             coaches.add(new Coach(cacheName));
         }
         return coaches;
+    }
+
+    private void getAndSetCantEatMenu(Coaches coaches) {
+        for (Coach coach : coaches.getCoaches()) {
+            inputView.printCantEatMenuInputGuideMessage(coach.getName());
+        }
     }
 }

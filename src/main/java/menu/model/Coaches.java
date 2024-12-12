@@ -2,6 +2,7 @@ package menu.model;
 
 import static menu.ExceptionMessage.COACHES_NUMBER_INVALID_EXCEPTION;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Coaches {
@@ -13,6 +14,10 @@ public class Coaches {
     public Coaches(final List<Coach> coaches) {
         validateCoachesNumber(coaches);
         this.coaches = coaches;
+    }
+
+    public List<Coach> getCoaches() {
+        return Collections.unmodifiableList(coaches);
     }
 
     private void validateCoachesNumber(List<Coach> coaches) {
