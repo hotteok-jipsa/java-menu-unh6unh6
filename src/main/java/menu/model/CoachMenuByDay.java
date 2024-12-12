@@ -2,7 +2,9 @@ package menu.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import menu.dto.CoachMenuByDayDto;
 import menu.enums.Category;
 import menu.enums.DayOfWeek;
 
@@ -13,6 +15,13 @@ public class CoachMenuByDay {
 
     public CoachMenuByDay(CategoryByDay categoryByDay, Coach coach) {
         this.coach = coach;
+    }
+
+    public CoachMenuByDayDto getCoachMenuByDayDto() {
+        return new CoachMenuByDayDto(
+                coach.getName(),
+                Collections.unmodifiableList(selectedMenus)
+        );
     }
 
     private void selectMenu(CategoryByDay categoryByDay) {

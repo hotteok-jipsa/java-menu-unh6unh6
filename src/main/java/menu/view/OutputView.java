@@ -2,12 +2,14 @@ package menu.view;
 
 import java.util.List;
 import menu.dto.CategoryByDayDto;
+import menu.dto.CoachMenuByDayDto;
 
 public class OutputView {
 
     private static final String RESULT_GUIDE_MESSAGE = "점심 메뉴 추천을 시작합니다.";
     private static final String DAY_OF_WEEK_MESSAGE_FORM = "[ 구분 | %s | %s | %s | %s | %s ]\n";
     private static final String CATEGORY_MESSAGE_FORM = "[ 카테고리 | %s | %s | %s | %s | %s ]\n";
+    private static final String COACHES_MENUS_MESSAGE_FORM = "[ %s | %s | %s | %s | %s | %s ]\n";
 
     public void printErrorMessage(Exception e) {
         System.out.println(e.getMessage());
@@ -20,6 +22,22 @@ public class OutputView {
     public void printCategoryByDay(List<CategoryByDayDto> categoryByDayDtos) {
         printDayOfWeek(categoryByDayDtos);
         printCategory(categoryByDayDtos);
+    }
+
+    public void printCoachesMenus(List<CoachMenuByDayDto> coachMenuByDayDtos) {
+        coachMenuByDayDtos.stream()
+                .forEach(this::printCoachMenus);
+    }
+
+    private void printCoachMenus(CoachMenuByDayDto coachMenuByDayDto) {
+        System.out.printf(COACHES_MENUS_MESSAGE_FORM,
+                coachMenuByDayDto.name(),
+                coachMenuByDayDto.menus().get(0),
+                coachMenuByDayDto.menus().get(1),
+                coachMenuByDayDto.menus().get(2),
+                coachMenuByDayDto.menus().get(3),
+                coachMenuByDayDto.menus().get(4),
+                );
     }
 
     private void printDayOfWeek(List<CategoryByDayDto> categoryByDayDtos) {
